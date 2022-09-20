@@ -41,3 +41,11 @@ jobs:
       run: |
         echo $GITHUB_ARTIFACT_VERSION
         python3 test.py
+    - uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.ACCESS_TOKEN }}"
+        automatic_release_tag: ${{ env.GITHUB_ARTIFACT_VERSION }}
+        prerelease: false
+        title: "Test release ${{ env.GITHUB_ARTIFACT_VERSION }}"
+        files: |
+          *.py
