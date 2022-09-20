@@ -1,0 +1,10 @@
+#
+# Version Format "a.b.c"
+#   a - major release
+#   b - feature add
+#   c - bug fix
+#
+# 1.0.0 Initial release
+
+
+VERSION="1.0.0"
