@@ -44,7 +44,7 @@ jobs:
     - uses: "marvinpinto/action-automatic-releases@latest"
       if: ${{ contains(github.head_ref, 'main') || contains(github.ref_name, 'main') }}
       with:
-        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        repo_token: "${{ secrets.ACCESS_TOKEN }}"
         automatic_release_tag: ${{ env.GITHUB_ARTIFACT_VERSION }}
         prerelease: false
         title: "Test release ${{ env.GITHUB_ARTIFACT_VERSION }}"
