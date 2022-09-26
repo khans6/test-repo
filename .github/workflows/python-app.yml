@@ -42,8 +42,9 @@ jobs:
         echo $GITHUB_ARTIFACT_VERSION
         python3 test.py
     - uses: "marvinpinto/action-automatic-releases@latest"
+      if: ${{ github.head_ref == *"release"* || github.ref_name == *"release"* }}
       with:
-        repo_token: "${{ secrets.ACCESS_TOKEN }}"
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
         automatic_release_tag: ${{ env.GITHUB_ARTIFACT_VERSION }}
         prerelease: false
         title: "Test release ${{ env.GITHUB_ARTIFACT_VERSION }}"
