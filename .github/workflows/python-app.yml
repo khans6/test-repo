@@ -40,6 +40,8 @@ jobs:
     - name: Run python script
       run: |
         echo $GITHUB_ARTIFACT_VERSION
+        echo "Output Github token, if any: ${{ secrets.GITHUB_TOKEN }}"
+        echo "Output Access token, if any: ${{ secrets.ACCESS_TOKEN }}
         python3 test.py
     - uses: "marvinpinto/action-automatic-releases@latest"
       if: ${{ contains(github.head_ref, 'main') || contains(github.ref_name, 'main') }}
